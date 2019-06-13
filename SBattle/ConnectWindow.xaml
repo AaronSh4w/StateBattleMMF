@@ -25,8 +25,6 @@
         <Label Grid.Row="0" Grid.Column="0" Content="Имя игрока:" VerticalAlignment="Center" Background="#FF00C5FF" />
         <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Text="{Binding PlayerName}" VerticalAlignment="Center" Background="White" />
 
-        <Label Grid.Row="1" Grid.ColumnSpan="5" Content="Найденные серверы:" Background="#FF00C5FF" />
-
         <ListView Grid.Row="2" Grid.ColumnSpan="5" MouseDoubleClick="lvwServers_MouseDoubleClick"
                   ItemsSource="{Binding Servers}" SelectedItem="{Binding SelectedServer}" Background="White" >
             <ListView.View>
