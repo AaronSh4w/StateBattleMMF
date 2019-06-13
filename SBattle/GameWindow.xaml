@@ -8,27 +8,44 @@
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Title="Игра: Морской бой" Height="350" Width="498">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF168DE0" Offset="1"/>
+                <GradientStop Color="#FF868AD4" Offset="0.013"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="16*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="5" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0" Margin="0,0,136,0">
+        <Grid Grid.Row="0" Grid.Column="0" Margin="0,0,136,0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            
+
             <my:BattleField Grid.Column="0" HorizontalAlignment="Right" x:Name="enemyField" />
-            <my:BattleField Grid.Column="1" HorizontalAlignment="Left" x:Name="myField" />
+            <my:BattleField Grid.Column="1" HorizontalAlignment="Left" x:Name="myField" Margin="10,0,-9,0" />
         </Grid>
 
         <GridSplitter Grid.Row="1" Grid.Column="0" Background="Transparent"
                       ResizeDirection="Rows" ResizeBehavior="PreviousAndNext"
-                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-        <Button x:Name="tt" Content="ориентация" Click="Button_Click_1"
-                VerticalAlignment="Center" Margin="380,22,27,130" RenderTransformOrigin="5.222,0.375" />
-        <my:ChatFrame Grid.Row="2" Grid.Column="0" Client="{Binding Client}" x:Name="chat"  />
+                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"/>
+        <Button x:Name="tt" Content="" Click="Button_Click_1"
+                VerticalAlignment="Center" Margin="55,45,30,61" RenderTransformOrigin="5.222,0.375" Grid.Column="1" Height="70" >
+            <Button.Background>
+                <ImageBrush ImageSource="Image/Reload.png"/>
+            </Button.Background>
+        </Button>
+        <my:ChatFrame Grid.Row="2" Grid.Column="0" Client="{Binding Client}" x:Name="chat" Background="#FF00C5FF" Loaded="Chat_Loaded" Grid.ColumnSpan="2"  />
+        <WrapPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+        <WrapPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+        <WrapPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>

@@ -149,6 +149,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Image\Reload.png" />
+    <Resource Include="Image\Find.png" />
     <Content Include="Voice\VoiceSuc.wav" />
     <Content Include="Voice\VoiceWin.wav" />
     <Content Include="Voice\Voice_MissClick.wav" />

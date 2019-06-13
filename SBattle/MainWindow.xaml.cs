@@ -96,5 +96,10 @@ namespace SBattle
 
             base.OnPropertyChanged(e);
         }
+
+        private void Chat_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

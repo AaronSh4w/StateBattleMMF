@@ -6,7 +6,7 @@
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Title="Сервер игры" Height="303" Width="538">
-    <Grid>
+    <Grid Background="#FF00C5FF">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
@@ -17,7 +17,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <GroupBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+        <GroupBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#FF00C5FF">
             <GroupBox.Header>
                 <CheckBox Content="Остановить сервер" IsChecked="{Binding ServerStopped}" />
             </GroupBox.Header>
@@ -43,7 +43,7 @@
                 <Label Grid.Row="2" Grid.Column="0" Content="Порт: " 
                        IsEnabled="False" />
                 <TextBox Grid.Row="2" Grid.Column="2" 
-                         Text="25125" IsEnabled="False" />
+                         Text="25125" IsEnabled="False" Background="White" />
 
                 <CheckBox Grid.Row="4" Grid.Column="2" Content="Видимость" HorizontalAlignment="Left"
                           IsChecked="{Binding ServerDiscoverable}" IsEnabled="{Binding ServerStopped}"  />
@@ -56,6 +56,12 @@
                   HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
         <ListView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Log}" Name="lvwLog">
+            <ListView.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD5E1E4" Offset="0"/>
+                    <GradientStop Color="#FF00C5FF" Offset="0.99"/>
+                </LinearGradientBrush>
+            </ListView.Background>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Время запуска" DisplayMemberBinding="{Binding Time}" />

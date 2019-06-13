@@ -332,5 +332,10 @@ namespace SBattle
         {
             _initVertical = !_initVertical;
         }
+
+        private void Chat_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

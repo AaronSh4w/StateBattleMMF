@@ -6,7 +6,7 @@
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Title="Подключение к серверу игры" Height="221" Width="371">
-    <Grid>
+    <Grid Background="#FF00C5FF">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -22,13 +22,13 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="Имя игрока:" VerticalAlignment="Center" />
-        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Text="{Binding PlayerName}" VerticalAlignment="Center" />
+        <Label Grid.Row="0" Grid.Column="0" Content="Имя игрока:" VerticalAlignment="Center" Background="#FF00C5FF" />
+        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Text="{Binding PlayerName}" VerticalAlignment="Center" Background="White" />
 
-        <Label Grid.Row="1" Grid.ColumnSpan="5" Content="Найденные серверы:" />
+        <Label Grid.Row="1" Grid.ColumnSpan="5" Content="Найденные серверы:" Background="#FF00C5FF" />
 
         <ListView Grid.Row="2" Grid.ColumnSpan="5" MouseDoubleClick="lvwServers_MouseDoubleClick"
-                  ItemsSource="{Binding Servers}" SelectedItem="{Binding SelectedServer}" >
+                  ItemsSource="{Binding Servers}" SelectedItem="{Binding SelectedServer}" Background="White" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Сервер" Width="150" DisplayMemberBinding="{Binding Name}" />
@@ -41,7 +41,7 @@
         <Button Grid.Row="4" Grid.Column="0" Content="Обновить"
                 VerticalAlignment="Center" Click="btnRefresh_Click"/>
 
-        <Label Grid.Row="4" Grid.Column="1" Content="Хост: " VerticalAlignment="Center" />
+        <Label Grid.Row="4" Grid.Column="1" Content="Хост: " VerticalAlignment="Center" Background="#FF00C5FF" />
 
         <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding HostAddress}" VerticalAlignment="Center" />
 
