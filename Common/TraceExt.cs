@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
+using System.Reflection;//определение типов в многопоточке
 
 namespace Common
 {
@@ -10,8 +10,8 @@ namespace Common
 		Console,
 		Debug
 	}
-
-	public static class TraceExt
+    #region БООЛЬШОЙ Секс с определением типа в потоке-рефлексия
+    public static class TraceExt
 	{
 		public static string Repeat(this string str, int n)
 		{
@@ -79,9 +79,9 @@ namespace Common
 		private static string Collect(Type varType, Func<object> objf, string varName, int depth, Dictionary<object, string> traced, bool showTypes, int stdepth, ExceptInfo except)
 		{
 			if (stdepth > 10)
-				return "!Не удается получить содержимое!";
+				return "!Не удается получить содержимое!"; // случай когда Максим Евгеньевич что-то сломал
 
-			var ret = ((varType != null && showTypes) ? ("[" + varType.GetTypeC() + "#" + varType.Name + "] ") : ("")) +
+             var ret = ((varType != null && showTypes) ? ("[" + varType.GetTypeC() + "#" + varType.Name + "] ") : ("")) +
 					  ((varName != null) ? (varName + " : ") : (""));
 
 			object obj = null;
@@ -91,7 +91,7 @@ namespace Common
 				while (e.InnerException != null)
 					e = e.InnerException;
 
-				return ret + "!Не удается получить содержимое : '" + e.Message + "'!";
+				return ret + "!Не удается получить содержимое : '" + e.Message + "'!";//случай когда Максим Евгеньевич что-то сломал
 			}
 
 			if (obj == null)
@@ -297,4 +297,5 @@ namespace Common
 
 		}
 	}
+    #endregion
 }

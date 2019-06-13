@@ -6,7 +6,7 @@ namespace NetLib
 {
     public class Dispatcher<T>
     {
-        Dictionary<Type, Delegate> _methods = new Dictionary<Type, Delegate>();
+        Dictionary<Type, Delegate> _methods = new Dictionary<Type, Delegate>();//словарь
 
         public Dispatcher() : this(m => m.Name == "Handle" ? m.GetParameters()[0].ParameterType : null) { }
 
@@ -15,7 +15,7 @@ namespace NetLib
             RecursiveRegisterMethods(typeof(T), selector);
         }
 
-        private void RecursiveRegisterMethods(Type t, Func<MethodInfo, Type> selector)
+        private void RecursiveRegisterMethods(Type t, Func<MethodInfo, Type> selector)//рекурсия реги
         {
             var baseType = t.BaseType;
             if (baseType != null)
@@ -23,7 +23,7 @@ namespace NetLib
                 RecursiveRegisterMethods(baseType, selector);
             }
 
-            foreach (var item in t.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
+            foreach (var item in t.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))//данные значения с помощью побитовой операции ИЛИ можно комбинировать вывод
             {
                 if (item.GetParameters().Length == 1 && item.ReturnType == typeof(void))
                 {
@@ -38,7 +38,7 @@ namespace NetLib
 
         public bool Dispatch(T handler, object obj)
         {
-            Delegate method;
+            Delegate method;//ссылку на метод
             if (_methods.TryGetValue(obj.GetType(), out method))
                 method.DynamicInvoke(handler, obj);
 

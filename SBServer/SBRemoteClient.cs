@@ -29,7 +29,7 @@ namespace SBServer
         public string Password { get; private set; }
 
         /// <summary>
-        /// Конструктор класса
+        #region Конструктор класса
         /// </summary>
         /// <param name="cnn"></param>
         public SBRemoteClient(Connection cnn)
@@ -41,14 +41,15 @@ namespace SBServer
             this.Id = Guid.NewGuid();
             this.State = KnownClientState.Free;
         }
-
+        #endregion
         /// <summary>
-        /// Запуск
+         #region Запуск
         /// </summary>
         public void Start()
         {
             _cnn.Start();
         }
+        #endregion
 
         private void Handle(MsgRegisterName pckt)
         {

@@ -9,9 +9,9 @@
         Title="Игра: Морской бой" Height="350" Width="498">
     <Grid>
         <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="1,0">
                 <GradientStop Color="#FF168DE0" Offset="1"/>
-                <GradientStop Color="#FF868AD4" Offset="0.013"/>
+                <GradientStop Color="#FF9DA0D8" Offset="0.013"/>
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
@@ -30,7 +30,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <my:BattleField Grid.Column="0" HorizontalAlignment="Right" x:Name="enemyField" />
+            <my:BattleField Grid.Column="0" HorizontalAlignment="Right" x:Name="enemyField" Width="176" />
             <my:BattleField Grid.Column="1" HorizontalAlignment="Left" x:Name="myField" Margin="10,0,-9,0" />
         </Grid>
 

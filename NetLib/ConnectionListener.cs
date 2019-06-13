@@ -12,7 +12,7 @@ namespace NetLib
 
         public ConnectionListener(ushort port)
         {
-            _listener = new TcpListener(port);
+            _listener = new TcpListener(port);//нужно будет обновить по новым шаблонам
         }
 
         public void Start()

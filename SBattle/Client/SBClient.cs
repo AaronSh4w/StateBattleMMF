@@ -56,7 +56,7 @@ namespace SBattle.Client
             };
 
             if (!_connect())
-                throw new ApplicationException("Ошибка соединения!");
+                throw new ApplicationException("Ошибка соединения!");//Случай когда нужно побыстрее поднять занова сервер
 
             _cnn.Send(new MsgRegisterName() { ClientName = username });
         }

@@ -7,9 +7,9 @@ namespace NetLib
 {
     public class Connection : IDisposable
     {
-        MemoryStream _outStream;
-        Socket _sck;
-        BinaryFormatter _formatter;
+        MemoryStream _outStream;// (или вывода). Читать ещё
+        Socket _sck;//один конец двусторонней связи 
+        BinaryFormatter _formatter;//Бинарная сериализация
         byte[] _hbuff;
 
         public event Action<object> OnData = delegate { };

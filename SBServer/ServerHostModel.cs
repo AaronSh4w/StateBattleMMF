@@ -2,8 +2,8 @@
 
 namespace SBServer
 {
-    /// <summary>
-    /// Базовый класс хоста сервера
+   
+    #region Базовый класс хоста сервера
     /// </summary>
     public class ServerHostModel
     {
@@ -27,4 +27,5 @@ namespace SBServer
             this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
     }
+    #endregion
 }

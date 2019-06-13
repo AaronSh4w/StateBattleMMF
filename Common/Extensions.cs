@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Windows.Threading;
+using System.Windows.Threading;//библиотека нужна для потоков
 
 namespace Common
 {

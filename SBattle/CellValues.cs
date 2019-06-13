@@ -1,11 +1,11 @@
 ﻿using SBattle.UI;
-using System.Windows.Media;
+using System.Windows.Media;//библиотека рисования
 
 namespace SBattle
 {
-    /// <summary>
-    /// Класс значений ячеек игрового поля
-    /// </summary>
+
+    #region Класс значений ячеек игрового поля
+
     static class CellValues
     {
         public static readonly BattleFieldColorsCollection BattleFieldColors = new BattleFieldColorsCollection(new[]{
@@ -22,10 +22,10 @@ namespace SBattle
         public const int CompletlyDead = 3;
         public const int FiredEmpty = 4;
     }
+    #endregion
 
-    /// <summary>
-    /// Класс значений границ игрового поля и сетки
-    /// </summary>
+    #region Класс значений границ игрового поля и сетки
+
     static class BorderValues
     {
         public static readonly BattleFieldColorsCollection BattleFieldBorderColors = new BattleFieldColorsCollection(new[]{
@@ -38,4 +38,5 @@ namespace SBattle
         public const int PlaceSelection = 1;
         public const int TargetSelection = 2;
     }
+    #endregion
 }

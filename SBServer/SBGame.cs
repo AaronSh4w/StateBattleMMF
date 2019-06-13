@@ -54,8 +54,8 @@ namespace SBServer
 
         public GameState State { get; private set; }
 
-        /// <summary>
-        /// Конструктор класса игры. В качестве входных параметров идут классы с информацией об удаленном клиенте игроков.
+
+        #region Конструктор класса игры. В качестве входных параметров идут классы с информацией об удаленном клиенте игроков.
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
@@ -79,10 +79,10 @@ namespace SBServer
             c.OnLeaveGame += () => LeaveHandler(c);
             c.OnConnectionLost += () => ConnectionLostHandler(c);
         }
+        #endregion
 
-        /// <summary>
-        /// Процедура, выполняющаяся при потере соединения
-        /// </summary>
+        #region Процедура, выполняющаяся при потере соединения
+
         /// <param name="source"></param>
         private void ConnectionLostHandler(SBRemoteClient source)
         {
@@ -100,10 +100,11 @@ namespace SBServer
                 }
             }
         }
+        #endregion
 
-        /// <summary>
-        /// Процедура, выполняющаяся при выходе из игры одного из игроков
-        /// </summary>
+     
+        #region  Процедура, выполняющаяся при выходе из игры одного из игроков
+
         /// <param name="source"></param>
         private void LeaveHandler(SBRemoteClient source)
         {
@@ -128,9 +129,10 @@ namespace SBServer
                 }
             }
         }
+        #endregion
 
-        /// <summary>
-        /// Сообщения в чат
+       
+        #region Сообщения в чат
         /// </summary>
         /// <param name="source"></param>
         /// <param name="msg"></param>
@@ -146,9 +148,10 @@ namespace SBServer
                 }
             }
         }
+        #endregion
 
-        /// <summary>
-        /// Процедура, вызывающаяся во время сражения
+    
+        #region Процедура, вызывающаяся во время сражения
         /// </summary>
         /// <param name="source"></param>
         /// <param name="x"></param>
@@ -247,9 +250,10 @@ namespace SBServer
 
             return true;
         }
+        #endregion
 
-        /// <summary>
-        /// Процедура установки состояния игры
+      
+        #region Процедура установки состояния игры
         /// </summary>
         /// <param name="state"></param>
         private void SetState(GameState state)
@@ -316,5 +320,6 @@ namespace SBServer
                 }
             }
         }
+        #endregion
     }
 }

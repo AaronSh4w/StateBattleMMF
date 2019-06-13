@@ -12,7 +12,7 @@ namespace SBattle.Client
     {
         public SBClient Client { get; private set; }
 
-        #region ObservableCollection<GameInfo> CurrentGames
+        #region ObserCollec Работа с главным экраном
 
         public ObservableCollection<GameInfo> CurrentGames
         {
@@ -25,7 +25,7 @@ namespace SBattle.Client
 
         #endregion
 
-        #region ObservableCollection<PlayerInfo> PlayersOnline
+        #region ObserCollec PlayersOnline
 
         public ObservableCollection<PlayerInfo> PlayersOnline
         {
@@ -96,7 +96,7 @@ namespace SBattle.Client
             this.NameB = nameB;
         }
 
-        public void UpdateScores(int a, int b)
+        public void UpdateScores(int a, int b)//работа с обнеовлениями счёта
         {
             this.ScoresA = a;
             this.ScoresB = b;

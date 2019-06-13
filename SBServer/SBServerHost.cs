@@ -8,8 +8,8 @@ using Common;
 
 namespace SBServer
 {
-    /// <summary>
-    /// Класс хоста сервера
+    
+    #region Класс хоста сервера
     /// </summary>
     public class SBServerHost : IDisposable
     {
@@ -37,9 +37,9 @@ namespace SBServer
         {
             _listener.Start();
         }
-
-        /// <summary>
-        /// Создание нового соединения
+        #endregion
+       
+    #region Создание нового соединения
         /// </summary>
         /// <param name="cnn"></param>
         private void NewConnectionHandler(Connection cnn)
@@ -60,9 +60,10 @@ namespace SBServer
 
             OnNewConnection(c, cnn);
         }
+        #endregion
 
-        /// <summary>
-        /// Потеря соединения
+       
+        #region Потеря соединения
         /// </summary>
         /// <param name="c"></param>
         private void ConnectionLostHandler(SBRemoteClient c)
@@ -89,9 +90,10 @@ namespace SBServer
                 }
             }
         }
+        #endregion
 
-        /// <summary>
-        /// Начало игры
+        
+        #region Начало игры
         /// </summary>
         /// <param name="c"></param>
         /// <param name="opponentId"></param>
@@ -137,9 +139,9 @@ namespace SBServer
                 }
             }
         }
-
-        /// <summary>
-        /// Восстановление соединения
+        #endregion
+       
+#region Восстановление соединения
         /// </summary>
         /// <param name="id"></param>
         /// <param name="cnn"></param>
@@ -172,9 +174,9 @@ namespace SBServer
                 cnn.Dispose();
             }
         }
-
-        /// <summary>
-        /// Регистрация имени
+        #endregion
+        
+#region  Типо  Регистрация 
         /// </summary>
         /// <param name="clnt"></param>
         private void RegisterNameHandler(SBRemoteClient clnt)
@@ -229,9 +231,9 @@ namespace SBServer
                 }
             });
         }
-
-        /// <summary>
-        /// Сообщения в чат
+        #endregion
+       
+#region Сообщения в чат
         /// </summary>
         /// <param name="source"></param>
         /// <param name="msg"></param>
@@ -247,18 +249,19 @@ namespace SBServer
         {
             this.SendToAll(new MsgKnownClientStateUpdate() { Id = source.Id, State = st });
         }
+        #endregion
 
-        /// <summary>
-        /// Результаты игры
+        
+        #region Результаты игры
         /// </summary>
         /// <param name="pckt"></param>
         private void GameScoreChangedHalder(MsgUpdateGame pckt)
         {
             this.SendToAll(pckt);
         }
-
-        /// <summary>
-        /// Окончание игры
+        #endregion
+       
+#region Окончание игры
         /// </summary>
         /// <param name="g"></param>
         private void GameFinishedHandler(SBGame g)
@@ -269,9 +272,9 @@ namespace SBServer
             }
             this.SendToAll(new MsgRemoveGame() { Id = g.Id });
         }
-
-        /// <summary>
-        /// Отправка состояний всем играющим удаленным клиентам
+        #endregion
+       
+#region Отправка состояний всем играющим удаленным клиентам
         /// </summary>
         /// <param name="obj"></param>
         private void SendToAll(object obj)
@@ -287,9 +290,9 @@ namespace SBServer
 
             Array.ForEach(clients, c => c.Send(obj));
         }
-
-        /// <summary>
-        /// Освобождение памяти
+        #endregion
+      
+#region  Последняя стадия это очистка памяти
         /// </summary>
         public void Dispose()
         {
@@ -299,3 +302,4 @@ namespace SBServer
         }
     }
 }
+#endregion

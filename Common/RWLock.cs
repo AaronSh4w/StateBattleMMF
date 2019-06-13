@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Threading;
+using System.Threading;//потоки
 
 namespace Common
 {
     public class RWLock
     {
+        #region События когда нужно сделать лок потока
         class ReaderLock : IDisposable
         {
             ReaderWriterLock _lock;
@@ -59,4 +60,5 @@ namespace Common
             this.Object = obj;
         }
     }
+    #endregion
 }
